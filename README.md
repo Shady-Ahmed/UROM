@@ -1,6 +1,5 @@
 # UROM
 Python implementation of uplifted reduced order modeling (UROM) framework for the paper: 
-
 ### ["A long short-term memory embedding for hybrid uplifted reduced order models"](https://arxiv.org/abs/1912.06756) 
 by Shady E. Ahmed, Omer San, Adil Rasheed, and Traian Iliescu.
 
