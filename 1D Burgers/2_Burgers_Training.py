@@ -315,9 +315,9 @@ ytrain = ytrain[perm,:]
     
 # create the LSTM architecture
 model3 = Sequential()
-model3.add(LSTM(80, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
-model3.add(LSTM(80, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
-model3.add(LSTM(80, input_shape=(lookback, Q+1), activation='tanh'))
+model3.add(LSTM(60, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
+model3.add(LSTM(60, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
+model3.add(LSTM(60, input_shape=(lookback, Q+1), activation='tanh'))
 model3.add(Dense(Q))
 
 # compile model
