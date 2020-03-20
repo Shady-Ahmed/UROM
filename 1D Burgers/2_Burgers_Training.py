@@ -97,7 +97,8 @@ for p in range(nc):
             for i in range(R):
                 temp = Phi[:,i,p]*Phid[:,j]
                 b_nl[i,j,k] = - np.dot( temp.T, Phi[:,k,p] ) 
-                
+    
+    ahat[p,:3,1:] = aTrain[p,:3,:R]      
     for k in range(3,ns+1): #Because we are using Adam-Bashforth
         r1 = rhs(R, b_l, b_nl, aTrain[p,k-1,:R])  
         r2 = rhs(R, b_l, b_nl, aTrain[p,k-2,:R])  
@@ -314,9 +315,9 @@ ytrain = ytrain[perm,:]
     
 # create the LSTM architecture
 model3 = Sequential()
-model3.add(LSTM(60, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
-model3.add(LSTM(60, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
-model3.add(LSTM(60, input_shape=(lookback, Q+1), activation='tanh'))
+model3.add(LSTM(80, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
+model3.add(LSTM(80, input_shape=(lookback, Q+1), return_sequences=True, activation='tanh'))
+model3.add(LSTM(80, input_shape=(lookback, Q+1), activation='tanh'))
 model3.add(Dense(Q))
 
 # compile model
